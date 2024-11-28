@@ -17,7 +17,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: ["", "http://localhost:3000"],
+  origin: ["https://desolint-car-frontend.vercel.app", "http://localhost:3000"],
   optionsSuccessStatus: 200,
 };
 
@@ -31,6 +31,10 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/vehicle", vehicleRoutes);
 
 const PORT = process.env.PORT || 8080;
+
+app.get('/', (req, res) =>{
+  return res.status(200).json({message:'Desolint - Aman Ullah'})
+})
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
